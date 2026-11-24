@@ -4,7 +4,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 FRONTEND_DIR = BASE_DIR / "frontend"
 
-app = Flask(__name__, static_folder=str(FRONTEND_DIR), static_url_path="/static")
+app = Flask(__name__, static_folder=str(FRONTEND_DIR),
+            static_url_path="/static")
 
 
 @app.get("/")
@@ -14,8 +15,8 @@ def index():
 
 @app.get("/api/hello")
 def hello():
-    return jsonify(message="Hello from your Flask backend!")
+    return jsonify(message="Hello from Flask!")
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host="127.0.0.1", port=5000)
+    app.run(debug=True)
